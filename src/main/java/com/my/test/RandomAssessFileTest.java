@@ -36,7 +36,7 @@ public class RandomAssessFileTest {
         new FileWriteThread(4*a,s5.getBytes()).start(); // 从文件的5120字节之后开始写入数据
     }
 
-    // 利用线程在文件的指定位置写入指定数据1
+    // 利用线程在文件的指定位置写入指定数据
     static class FileWriteThread extends Thread{
         private int skip;
         private byte[] content;
