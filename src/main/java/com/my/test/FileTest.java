@@ -30,8 +30,9 @@ public class FileTest {
             File file = new File("C:\\Users\\admin\\Desktop\\a.txt");
             file.createNewFile();
             System.out.println(file);
-            try (FileOutputStream fos = new FileOutputStream(file)){
-                fos.write("nihaoya2".getBytes());
+            try (FileOutputStream fos = new FileOutputStream(file,true)){
+                //fos.write("nihaoya34 \n".getBytes());
+                fos.write(new byte[]{(byte)0xEF,(byte)0xBB,(byte)0xBF});
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -63,5 +64,48 @@ public class FileTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void test5() {
+        File file = new File("C:\\Users\\admin\\Desktop\\a.txt");
+        System.out.println(file);
+        try (FileOutputStream fos = new FileOutputStream(file,true)) {
+            fos.write("123456".getBytes());
+            file.delete();
+            fos.write("34567".getBytes());
+            fos.write("wwwww".getBytes());
+            fos.close();
+            fos.close();
+            fos.close();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        file.delete();
+
+    }
+    @Test
+    public void test6() throws IOException {
+        File file = new File("C:\\Users\\admin\\Desktop\\a.txt");
+        System.out.println(file);
+        FileOutputStream fos = new FileOutputStream(file,true);
+            fos.write("123456".getBytes());
+            file.delete();
+            fos.write("34567".getBytes());
+            fos.write("wwwww".getBytes());
+            fos.close();
+            fos.close();
+            fos.close();
+            fos.close();
+
+        //file.delete();
+
+    }
+    @Test
+    public void fileTitle(){
+        System.out.println("0xEF");
     }
 }
