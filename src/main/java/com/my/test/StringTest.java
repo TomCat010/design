@@ -28,6 +28,11 @@ public class StringTest {
         System.out.println(hamburger);
 
     }
+@Test
+    public void test9(){
+        Integer a = null;
+        System.out.println(a+"");
+    }
 
     public void test1(){
         String[] str = new String[] { "chen", "yang", "hao" };
