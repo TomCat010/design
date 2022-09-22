@@ -12,11 +12,12 @@ public class JDBCBatchDemo2 {
     private String user = "root";
     private String password = "root";
     @org.junit.Test
-    public void insertBigData() {
+    public void insertBigData() throws SQLException {
         //定义连接、statement对象
         Connection conn = null;
         PreparedStatement pstm = null;
         try {
+
             //加载jdbc驱动
             Class.forName("com.mysql.jdbc.Driver");
             //连接mysql
@@ -26,7 +27,11 @@ public class JDBCBatchDemo2 {
             //编写sql
             String sql = "INSERT INTO person VALUES (?,?,?,?,?,?,?)";
             //预编译sql
+
             pstm = conn.prepareStatement(sql);
+            //流样式查询设置
+            pstm.setFetchSize(Integer.MIN_VALUE);
+
             //开始总计时
             long bTime1 = System.currentTimeMillis();
 
