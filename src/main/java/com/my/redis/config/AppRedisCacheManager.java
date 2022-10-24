@@ -458,11 +458,13 @@ public class AppRedisCacheManager implements IGlobalCache {
     @Override
     public Long countZset(String key) {
         try {
-            return redisTemplate.opsForZSet().size(key);
+             return redisTemplate.opsForZSet().size(key);
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;
         }
     }
+
+
 
 }

@@ -21,9 +21,11 @@ public class TestController {
     public Object test(@RequestBody Page page){
         Set set = globalCache.zSetGetByPage(page.getKey(), page.pageNum, page.getPageSize());
         HashMap<Object, Object> result = new HashMap<>();
-        result.put("page",page.pageNum);
+        result.put("pageCurrent",page.pageNum);
         result.put("pageSize",page.pageSize);
-        result.put("total",globalCache.countZset(page.getKey()));
+        Long total = globalCache.countZset(page.getKey());
+        result.put("total",total);
+        result.put("pagetotal",total/page.pageSize == 0 ? total/page.pageSize : total/page.pageSize + 1);
         result.put("data",set);
         System.out.println(set);
         return result;

@@ -1,5 +1,7 @@
 package com.my.redis.config;
 
+import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Getter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,6 +43,25 @@ public class FirstAppByGuiApplicationTests {
         for (int i = 0; i <objects.length ; i++) {
             System.out.println(objects[i]);
         }*/
+    }
+
+    @Test
+    public void test4(){
+        User user1 = new User();
+        user1.setName("miss");
+        user1.setAge("34");
+        String s = JSON.toJSONString(user1);
+        System.out.println(s);
+
+        boolean is = globalCache.set("user:1", s);
+        //User  o = (User)globalCache.get("user:1");
+
+        //System.out.println(o.toString());
+
+        String user = "{\"name\":\"name1\",\"age\":\"123\"}";
+        User user2 = JSON.parseObject(user, User.class);
+        System.out.println(user2.getAge()+user2.getName());
+
     }
 
  }
