@@ -1,7 +1,7 @@
-package com.my.redis.config.saveobject.serialize;
+package com.my.redis.saveobject.serialize;
 
-import com.my.redis.config.IGlobalCache;
-import com.my.redis.config.saveobject.User;
+import com.my.redis.entity.User;
+import com.my.redis.manager.IGlobalCache;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,7 +14,7 @@ public class Test {
     private IGlobalCache globalCache;
 
     @org.junit.Test
-    public void test4(){
+    public void saveSerializeObjectTest(){
         globalCache.set("serializeObject", SerializeUtil.serialize(new User(2,"lumia")));
         Object serializeObject = globalCache.get("serializeObject");
         System.out.println(serializeObject);

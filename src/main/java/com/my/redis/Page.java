@@ -1,4 +1,4 @@
-package com.my.redis.config;
+package com.my.redis;
 
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;

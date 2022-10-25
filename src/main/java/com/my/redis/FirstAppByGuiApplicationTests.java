@@ -1,17 +1,15 @@
-package com.my.redis.config;
+package com.my.redis;
 
 import com.alibaba.fastjson.JSON;
-import com.fasterxml.jackson.annotation.JsonAlias;
-import lombok.Getter;
+import com.my.redis.entity.User;
+import com.my.redis.manager.IGlobalCache;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -49,7 +47,7 @@ public class FirstAppByGuiApplicationTests {
     public void test4(){
         User user1 = new User();
         user1.setName("miss");
-        user1.setAge("34");
+        user1.setId(34);
         String s = JSON.toJSONString(user1);
         System.out.println(s);
 
@@ -60,7 +58,7 @@ public class FirstAppByGuiApplicationTests {
 
         String user = "{\"name\":\"name1\",\"age\":\"123\"}";
         User user2 = JSON.parseObject(user, User.class);
-        System.out.println(user2.getAge()+user2.getName());
+        System.out.println(user2.toString());
 
     }
 

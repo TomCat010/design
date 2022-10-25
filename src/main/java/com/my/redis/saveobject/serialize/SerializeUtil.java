@@ -1,4 +1,4 @@
-package com.my.redis.config.saveobject.serialize;
+package com.my.redis.saveobject.serialize;
 
 import java.io.*;
 

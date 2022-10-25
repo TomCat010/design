@@ -1,4 +1,4 @@
-package com.my.redis.config;
+package com.my.redis.manager;
 
 import org.springframework.data.redis.core.RedisTemplate;
 
