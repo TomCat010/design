@@ -20,5 +20,5 @@ public class Test {
         String user = (String)globalCache.get("jsonPojo:user");
         User user1 = JSON.parseObject(user, User.class);
         System.out.println(user1.toString());
-    }
-}
+     }
+ }

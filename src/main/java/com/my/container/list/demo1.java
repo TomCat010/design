@@ -27,5 +27,19 @@ public class demo1 {
         objects) {
           System.out.println("for eatch");
         }
+
+
     }
+    @Test
+    public void test3(){
+        ArrayList<Object> objects = new ArrayList<>();
+        for (int i = 0; i <200 ; i++) {
+            objects.add(i);
+        }
+         //objects = null;
+        for (Object o:
+                objects) {
+            System.out.println(o);
+        }
+     }
 }
